@@ -2,7 +2,7 @@ import express from 'express'
 import productsRouters from './routes/product.routes.js'
 import cartsRouters from './routes/carts.routes.js'
 import multer from 'multer'
-import { __dirname, __filename } from '/path.js'
+import { __dirname, __filename } from './path.js'
 
 const app = express()
 const PORT = 4000
@@ -26,8 +26,8 @@ app.post('/upload', upload.single('product'), (req, res) => {
     console.log(req.body)
     console.log(req.file)
     res.send("Image uploaded")
-app.use('/products', productsRouters)
-app.use('/carts', cartsRouters)
+app.use('/api/products', productsRouters)
+app.use('/api/carts', cartsRouters)
 app.use('/static', express.static(__dirname + '/public'))
 })
 
