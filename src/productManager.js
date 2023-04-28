@@ -25,7 +25,7 @@ export class ProductManager {
     async getProductById(id) {
         const productTXT = await fs.readFile(this.path, 'utf-8')
         
-        this.products = JSON.parsen(productTXT)
+        this.products = JSON.parse(productTXT)
 
         const productByid = this.products.find((prod) => prod.id === parseInt(id))
         const result = productByid !== undefined ? productByid : 'Product not found'

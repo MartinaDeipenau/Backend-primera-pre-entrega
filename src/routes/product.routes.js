@@ -11,9 +11,9 @@ productsRouters.get('/', async (req, res) => {
 
     const productLimit = (await myProductManager.getProducts()).slice(0, limit)
 
-    limit ? res.send(productLimit) : res.send(product)
-
     const product = await myProductManager.getProducts()
+
+    limit ? res.send(productLimit) : res.send(product)
 })
 
 productsRouters.get('/:id', async (req, res) => {
